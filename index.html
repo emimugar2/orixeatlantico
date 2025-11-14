@@ -1,0 +1,1271 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ATLÁNTICO - Bar moderno en las Dunas de Corrubedo. Tapas gallegas, terraza con vistas y eventos. Ribeira, A Coruña.">
+    <meta name="keywords" content="bar corrubedo, tapas gallegas, terraza ribeira, dunas corrubedo, bar moderno galicia">
+    <title>ATLÁNTICO - Bar en las Dunas de Corrubedo</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* ===== VARIABLES CSS ===== */
+        :root {
+            --azul-atlantico: #0A4B78;
+            --arena-dorada: #E8D4A2;
+            --verde-litoral: #2C5F54;
+            --coral-sunset: #E07856;
+            --blanco: #FFFFFF;
+            --negro: #1A1A1A;
+            --gris-claro: #F5F5F5;
+
+            --font-heading: 'Montserrat', sans-serif;
+            --font-body: 'Open Sans', sans-serif;
+        }
+
+        /* ===== RESET Y BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--negro);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* ===== UTILIDADES ===== */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 35px;
+            border-radius: 50px;
+            font-family: var(--font-heading);
+            font-weight: 600;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: var(--azul-atlantico);
+            color: var(--blanco);
+        }
+
+        .btn-primary:hover {
+            background: var(--verde-litoral);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(10, 75, 120, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--blanco);
+            border: 2px solid var(--blanco);
+        }
+
+        .btn-secondary:hover {
+            background: var(--blanco);
+            color: var(--azul-atlantico);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--azul-atlantico);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: #666;
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+            font-weight: 300;
+        }
+
+        /* ===== HEADER / NAVEGACIÓN ===== */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(10, 75, 120, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            transition: all 0.3s ease;
+        }
+
+        .header.scrolled {
+            background: rgba(10, 75, 120, 0.98);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--blanco);
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--arena-dorada);
+            font-size: 0.8rem;
+            display: block;
+            font-weight: 300;
+            letter-spacing: 3px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: var(--blanco);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            font-size: 15px;
+        }
+
+        .nav-link:hover {
+            color: var(--arena-dorada);
+        }
+
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .nav-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--blanco);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            height: 100vh;
+            min-height: 600px;
+            background: linear-gradient(135deg, rgba(10, 75, 120, 0.6), rgba(44, 95, 84, 0.4)),
+                        url('https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 150px;
+            background: linear-gradient(to top, var(--blanco), transparent);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            color: var(--blanco);
+            text-align: center;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-tagline {
+            font-size: 1.2rem;
+            font-weight: 300;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+            color: var(--arena-dorada);
+            text-transform: uppercase;
+        }
+
+        .hero-title {
+            font-size: 5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+            letter-spacing: 2px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+            font-weight: 300;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .hero-scroll {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--blanco);
+            font-size: 0.9rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            animation: bounce 2s infinite;
+        }
+
+        .hero-scroll::after {
+            content: '↓';
+            font-size: 1.5rem;
+        }
+
+        /* ===== CONCEPTO ===== */
+        .concepto {
+            padding: 100px 0;
+            background: var(--blanco);
+        }
+
+        .concepto-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-top: 60px;
+        }
+
+        .concepto-text h3 {
+            font-size: 2rem;
+            color: var(--azul-atlantico);
+            margin-bottom: 20px;
+        }
+
+        .concepto-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        .concepto-valores {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .valor-item {
+            background: var(--gris-claro);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .valor-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .valor-icon {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .valor-item h4 {
+            color: var(--azul-atlantico);
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+
+        .concepto-image {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+
+        .concepto-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 20px;
+        }
+
+        /* Placeholders para imágenes */
+        .img-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--azul-atlantico), var(--verde-litoral));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--blanco);
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            text-align: center;
+            padding: 20px;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .img-placeholder small {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            font-weight: 300;
+        }
+
+        /* ===== OFERTA / CARTA ===== */
+        .oferta {
+            padding: 100px 0;
+            background: var(--gris-claro);
+        }
+
+        .oferta-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .oferta-card {
+            background: var(--blanco);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .oferta-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .oferta-card-header {
+            padding: 30px;
+            text-align: center;
+            background: linear-gradient(135deg, var(--azul-atlantico), var(--verde-litoral));
+            color: var(--blanco);
+        }
+
+        .oferta-card-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .oferta-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .oferta-card-body {
+            padding: 30px;
+        }
+
+        .oferta-card ul {
+            list-style: none;
+        }
+
+        .oferta-card li {
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+            font-size: 1.05rem;
+            color: #555;
+        }
+
+        .oferta-card li:last-child {
+            border-bottom: none;
+        }
+
+        .oferta-card li::before {
+            content: '✓';
+            color: var(--verde-litoral);
+            font-weight: 700;
+            margin-right: 10px;
+        }
+
+        .precio {
+            color: var(--azul-atlantico);
+            font-weight: 700;
+            float: right;
+        }
+
+        /* ===== TERRAZA / EVENTOS ===== */
+        .terraza {
+            padding: 100px 0;
+            background: var(--azul-atlantico);
+            color: var(--blanco);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .terraza::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: rgba(232, 212, 162, 0.1);
+            border-radius: 50%;
+        }
+
+        .terraza .section-title,
+        .terraza .section-subtitle {
+            color: var(--blanco);
+        }
+
+        .terraza-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-top: 60px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .terraza-text h3 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: var(--arena-dorada);
+        }
+
+        .terraza-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .terraza-features {
+            display: grid;
+            gap: 15px;
+            margin: 30px 0;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: rgba(255,255,255,0.1);
+            padding: 15px 20px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            color: var(--arena-dorada);
+        }
+
+        .terraza-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .stat-card {
+            text-align: center;
+            background: rgba(255,255,255,0.1);
+            padding: 30px 20px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--arena-dorada);
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        /* ===== GALERÍA ===== */
+        .galeria {
+            padding: 100px 0;
+            background: var(--blanco);
+        }
+
+        .galeria-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 60px;
+        }
+
+        .galeria-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            cursor: pointer;
+            aspect-ratio: 1;
+        }
+
+        .galeria-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .galeria-item::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 75, 120, 0.7);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .galeria-item:hover::after {
+            opacity: 1;
+        }
+
+        .galeria-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* ===== UBICACIÓN / CONTACTO ===== */
+        .contacto {
+            padding: 100px 0;
+            background: var(--gris-claro);
+        }
+
+        .contacto-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-top: 60px;
+        }
+
+        .contacto-info h3 {
+            font-size: 2rem;
+            color: var(--azul-atlantico);
+            margin-bottom: 30px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            margin-bottom: 25px;
+            padding: 20px;
+            background: var(--blanco);
+            border-radius: 10px;
+        }
+
+        .info-icon {
+            font-size: 1.8rem;
+            color: var(--azul-atlantico);
+            min-width: 40px;
+        }
+
+        .info-content h4 {
+            color: var(--azul-atlantico);
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+
+        .info-content p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .mapa {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            min-height: 400px;
+            background: linear-gradient(135deg, var(--azul-atlantico), var(--verde-litoral));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--blanco);
+            font-size: 1.2rem;
+        }
+
+        /* ===== CTA SECTION ===== */
+        .cta {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--verde-litoral), var(--azul-atlantico));
+            color: var(--blanco);
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--blanco);
+        }
+
+        .cta p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: var(--negro);
+            color: var(--blanco);
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            color: var(--arena-dorada);
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: rgba(255,255,255,0.7);
+            line-height: 1.8;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--arena-dorada);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: var(--azul-atlantico);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 30px;
+            text-align: center;
+            color: rgba(255,255,255,0.5);
+            font-size: 0.9rem;
+        }
+
+        /* ===== ANIMACIONES ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            50% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background: var(--azul-atlantico);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                padding: 30px 0;
+                gap: 20px;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-toggle {
+                display: flex;
+            }
+
+            .hero-title {
+                font-size: 3rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .concepto-grid,
+            .terraza-content,
+            .contacto-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .concepto-valores {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER / NAVEGACIÓN -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="#" class="logo">
+                ATLÁNTICO
+                <span>ORIXE</span>
+            </a>
+
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#inicio" class="nav-link">Inicio</a></li>
+                <li><a href="#concepto" class="nav-link">Concepto</a></li>
+                <li><a href="#oferta" class="nav-link">Oferta</a></li>
+                <li><a href="#terraza" class="nav-link">Terraza</a></li>
+                <li><a href="#contacto" class="nav-link">Contacto</a></li>
+                <li><a href="#" class="btn btn-primary">Reservar</a></li>
+            </ul>
+
+            <div class="nav-toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="inicio">
+        <div class="container hero-content">
+            <p class="hero-tagline">Dunas de Corrubedo · Ribeira</p>
+            <h1 class="hero-title">ATLÁNTICO</h1>
+            <p class="hero-subtitle">
+                El primer bar moderno de Corrubedo. Tapas gallegas auténticas,
+                terraza con vistas al Atlántico y buen ambiente.
+            </p>
+            <div class="hero-buttons">
+                <a href="#contacto" class="btn btn-primary">Reserva tu Mesa</a>
+                <a href="#oferta" class="btn btn-secondary">Ver Carta</a>
+            </div>
+        </div>
+        <div class="hero-scroll">Descubre más</div>
+    </section>
+
+    <!-- CONCEPTO -->
+    <section class="concepto" id="concepto">
+        <div class="container">
+            <h2 class="section-title">Donde el Origen se Encuentra con el Atlántico</h2>
+            <p class="section-subtitle">
+                En el corazón de las Dunas de Corrubedo, traemos aire fresco con
+                producto local gallego, diseño actual y un ambiente que conecta.
+            </p>
+
+            <div class="concepto-grid">
+                <div class="concepto-text">
+                    <h3>Un Bar con Esencia Gallega y Alma Moderna</h3>
+                    <p>
+                        ATLÁNTICO nace en paso obligado hacia el Parque Natural de las
+                        Dunas de Corrubedo, con una misión clara: ser el punto de
+                        encuentro entre locales y visitantes, entre tradición y
+                        contemporaneidad.
+                    </p>
+                    <p>
+                        Nuestra propuesta combina lo mejor del producto local gallego
+                        con un ambiente joven, diseño cuidado y una terraza privilegiada
+                        con capacidad para 120 personas y vistas únicas.
+                    </p>
+
+                    <div class="concepto-valores">
+                        <div class="valor-item">
+                            <div class="valor-icon">🌊</div>
+                            <h4>Modernidad</h4>
+                            <p>Diseño actual y fresco</p>
+                        </div>
+                        <div class="valor-item">
+                            <div class="valor-icon">🍴</div>
+                            <h4>Autenticidad</h4>
+                            <p>Producto local gallego</p>
+                        </div>
+                        <div class="valor-item">
+                            <div class="valor-icon">🎵</div>
+                            <h4>Buen Ambiente</h4>
+                            <p>Música y eventos</p>
+                        </div>
+                        <div class="valor-item">
+                            <div class="valor-icon">✨</div>
+                            <h4>Calidad</h4>
+                            <p>Ingredientes seleccionados</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="concepto-image">
+                    <img src="https://images.unsplash.com/photo-1505142468610-359e7d316be0?w=800&q=80"
+                         alt="Vista de las Dunas de Corrubedo">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- OFERTA / CARTA -->
+    <section class="oferta" id="oferta">
+        <div class="container">
+            <h2 class="section-title">Nuestra Oferta</h2>
+            <p class="section-subtitle">
+                Tapas gallegas tradicionales, bocadillos generosos y bebidas premium.
+                Todo con producto local y preparación cuidada.
+            </p>
+
+            <div class="oferta-grid">
+                <!-- TAPAS -->
+                <div class="oferta-card">
+                    <div class="oferta-card-header">
+                        <div class="oferta-card-icon">🍤</div>
+                        <h3>Tapas Gallegas</h3>
+                        <p>Raciones generosas</p>
+                    </div>
+                    <div class="oferta-card-body">
+                        <ul>
+                            <li>Pimientos de Padrón <span class="precio">7€</span></li>
+                            <li>Raxo gallego <span class="precio">8€</span></li>
+                            <li>Chocos frescos <span class="precio">8€</span></li>
+                            <li>Calamares <span class="precio">8€</span></li>
+                            <li>Croquetas variadas <span class="precio">7€</span></li>
+                            <li>Fingers de pollo <span class="precio">7€</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- BOCADILLOS -->
+                <div class="oferta-card">
+                    <div class="oferta-card-header">
+                        <div class="oferta-card-icon">🥖</div>
+                        <h3>Bocadillos</h3>
+                        <p>Pan de panadería local</p>
+                    </div>
+                    <div class="oferta-card-body">
+                        <ul>
+                            <li>Bocadillos fríos <span class="precio">4,50€</span></li>
+                            <li>Barra grande <span class="precio">5-6€</span></li>
+                            <li>Bocadillos calientes <span class="precio">7-8€</span></li>
+                            <li style="border: none; padding-top: 20px; opacity: 0.7;">
+                                Ingredientes frescos y porciones generosas
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- BEBIDAS -->
+                <div class="oferta-card">
+                    <div class="oferta-card-header">
+                        <div class="oferta-card-icon">🍹</div>
+                        <h3>Bebidas</h3>
+                        <p>Selección premium</p>
+                    </div>
+                    <div class="oferta-card-body">
+                        <ul>
+                            <li>Cervezas artesanas gallegas</li>
+                            <li>Vinos de la tierra</li>
+                            <li>Albariño, Ribeiro, Mencía</li>
+                            <li>Mojitos y cócteles de autor</li>
+                            <li>Gin tonics premium</li>
+                            <li style="border: none; padding-top: 10px; opacity: 0.7;">
+                                Happy Hour: 18:00-20:00
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TERRAZA / EVENTOS -->
+    <section class="terraza" id="terraza">
+        <div class="container">
+            <h2 class="section-title">Terraza con Vistas al Atlántico</h2>
+            <p class="section-subtitle">
+                120 personas, eventos con DJ, atardeceres únicos y el mejor ambiente
+                de Corrubedo.
+            </p>
+
+            <div class="terraza-content">
+                <div class="terraza-text">
+                    <h3>El Corazón de Nuestro Proyecto</h3>
+                    <p>
+                        Nuestra terraza es el lugar perfecto para disfrutar de los
+                        atardeceres sobre el Atlántico, con música, cócteles y el
+                        ambiente más moderno de la zona.
+                    </p>
+
+                    <div class="terraza-features">
+                        <div class="feature-item">
+                            <span class="feature-icon">🎵</span>
+                            <div>
+                                <strong>Eventos Fin de Semana</strong>
+                                <p>DJ en directo viernes y sábados (21:00-01:00)</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">🌅</span>
+                            <div>
+                                <strong>Sunset Sessions</strong>
+                                <p>Los mejores atardeceres de Corrubedo</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">🍸</span>
+                            <div>
+                                <strong>Cocktails Premium</strong>
+                                <p>Mojitos, gin tonics y cócteles de autor</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="#contacto" class="btn btn-secondary" style="margin-top: 30px;">
+                        Reserva para Eventos
+                    </a>
+                </div>
+
+                <div class="terraza-stats">
+                    <div class="stat-card">
+                        <span class="stat-number">120</span>
+                        <span class="stat-label">Capacidad terraza</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">170</span>
+                        <span class="stat-label">Capacidad total</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">2-3</span>
+                        <span class="stat-label">Eventos/semana verano</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">360°</span>
+                        <span class="stat-label">Vistas al Atlántico</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALERÍA -->
+    <section class="galeria" id="galeria">
+        <div class="container">
+            <h2 class="section-title">Experiencia Visual</h2>
+            <p class="section-subtitle">
+                Las Dunas de Corrubedo, nuestra terraza y el ambiente que te espera.
+            </p>
+
+            <div class="galeria-grid">
+                <div class="galeria-item">
+                    <img src="https://www.hola.com/horizon/landscape/d9a99bd3c7ee-gettyimages-1387230422-t.jpg?im=Resize=(1200)"
+                         alt="Dunas de Corrubedo vista panorámica">
+                </div>
+                <div class="galeria-item">
+                    <img src="https://images.mnstatic.com/8e/29/8e29c236473b12282a545c3caa668f02.jpg"
+                         alt="Playa de Corrubedo">
+                </div>
+                <div class="galeria-item">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEisbUuLSmLy8ZAYmSPyaVlvxOlzM4wI3Vu4_UnVIZ4Oh_cHhqnWyp28cCCe1VG6Flzojt7zEMxZ5xX9bXIIG46ZjSLjLzY1y6Cpc9fxnBqgRJt6Lu9oPI2SuXHexK1HPVQ5a038pPI7Rhn4/s1600/corrubedo2.jpg"
+                         alt="Parque Natural Dunas de Corrubedo">
+                </div>
+                <div class="galeria-item">
+                    <img src="https://www.travelechoes.com/sites/default/files/inline-images/CORRUBEDO2.jpg"
+                         alt="Laguna y dunas de Corrubedo">
+                </div>
+                <div class="galeria-item">
+                    <img src="https://www.escapadarural.com/blog/wp-content/uploads/2018/10/parque-natural-dunas-de-corrubedo-duna-scaled.jpg"
+                         alt="Parque Natural Dunas de Corrubedo">
+                </div>
+                <div class="galeria-item">
+                    <img src="https://www.sientegalicia.com/blog/wp-content/uploads/2017/08/Paseo-Dunas-de-Corrubedo.jpg"
+                         alt="Paseo por las Dunas de Corrubedo">
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="https://instagram.com/orixeatlantico" target="_blank" class="btn btn-primary">
+                    Síguenos en Instagram @orixeatlantico
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACTO / UBICACIÓN -->
+    <section class="contacto" id="contacto">
+        <div class="container">
+            <h2 class="section-title">Visítanos</h2>
+            <p class="section-subtitle">
+                Estamos en paso obligado hacia las Dunas de Corrubedo.
+                Te esperamos.
+            </p>
+
+            <div class="contacto-grid">
+                <div class="contacto-info">
+                    <h3>Información de Contacto</h3>
+
+                    <div class="info-item">
+                        <div class="info-icon">📍</div>
+                        <div class="info-content">
+                            <h4>Ubicación</h4>
+                            <p>
+                                Rúa da Eirexa, 13, bajo<br>
+                                15868 Ribeira, A Coruña<br>
+                                Galicia, España
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon">⏰</div>
+                        <div class="info-content">
+                            <h4>Horario</h4>
+                            <p>
+                                <strong>Lunes:</strong> Cerrado<br>
+                                <strong>Mar-Jue:</strong> 12:00-23:00<br>
+                                <strong>Vie-Dom:</strong> 12:00-01:00<br>
+                                <em>Verano: Todos los días 11:00-01:00</em>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon">📧</div>
+                        <div class="info-content">
+                            <h4>Contacto</h4>
+                            <p>
+                                Email: contacto@orixeatlantico.com<br>
+                                Tel: +34 XXX XXX XXX<br>
+                                Instagram: @orixeatlantico
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mapa">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2914.234567890123!2d-9.043132!3d42.585815!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDLCsDM1JzA4LjkiTiA5wrAwMiczNS4zIlc!5e0!3m2!1ses!2ses!4v1234567890123!5m2!1ses!2ses"
+                        width="100%"
+                        height="100%"
+                        style="border:0; border-radius: 15px;"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="cta">
+        <div class="container">
+            <h2>¿Listo para Vivir la Experiencia?</h2>
+            <p>Reserva tu mesa y descubre el bar más moderno de Corrubedo</p>
+            <a href="mailto:contacto@orixeatlantico.com" class="btn btn-primary">
+                Reservar Ahora
+            </a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>ATLÁNTICO</h3>
+                    <p>
+                        El primer bar moderno en las Dunas de Corrubedo.
+                        Producto local gallego, terraza con vistas y buen ambiente.
+                    </p>
+                    <div class="social-links">
+                        <a href="https://instagram.com/orixeatlantico" class="social-link" target="_blank">📷</a>
+                        <a href="https://facebook.com/orixeatlantico" class="social-link" target="_blank">f</a>
+                        <a href="#" class="social-link">📧</a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Enlaces Rápidos</h3>
+                    <p><a href="#concepto">Concepto</a></p>
+                    <p><a href="#oferta">Nuestra Carta</a></p>
+                    <p><a href="#terraza">Terraza y Eventos</a></p>
+                    <p><a href="#contacto">Contacto</a></p>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Horario</h3>
+                    <p>Lunes: Cerrado</p>
+                    <p>Martes-Jueves: 12:00-23:00</p>
+                    <p>Viernes-Domingo: 12:00-01:00</p>
+                    <p><em>Verano: Todos los días 11:00-01:00</em></p>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Contacto</h3>
+                    <p>Rúa da Eirexa, 13, bajo</p>
+                    <p>15868 Ribeira, A Coruña</p>
+                    <p>contacto@orixeatlantico.com</p>
+                    <p>Tel: +34 XXX XXX XXX</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 ATLÁNTICO - Orixe Atlántico SL. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        // Menú móvil toggle
+        const navToggle = document.getElementById('nav-toggle');
+        const navMenu = document.getElementById('nav-menu');
+
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Cerrar menú al hacer click en un enlace
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
