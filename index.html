@@ -823,8 +823,7 @@
     <header class="header" id="header">
         <nav class="nav container">
             <a href="#" class="logo">
-                ATLÁNTICO
-                <span>ORIXE</span>
+                <img src="atlantico.svg" alt="ATLÁNTICO" style="height: 50px; width: auto;">
             </a>
 
             <ul class="nav-menu" id="nav-menu">
@@ -833,7 +832,6 @@
                 <li><a href="#oferta" class="nav-link">Oferta</a></li>
                 <li><a href="#terraza" class="nav-link">Terraza</a></li>
                 <li><a href="#contacto" class="nav-link">Contacto</a></li>
-                <li><a href="#" class="btn btn-primary">Reservar</a></li>
             </ul>
 
             <div class="nav-toggle" id="nav-toggle">
@@ -848,13 +846,13 @@
     <section class="hero" id="inicio">
         <div class="container hero-content">
             <p class="hero-tagline">Dunas de Corrubedo · Ribeira</p>
-            <h1 class="hero-title">ATLÁNTICO</h1>
+            <img src="atlantico.svg" alt="ATLÁNTICO" style="max-width: 600px; width: 90%; height: auto; margin: 0 auto 20px;">
             <p class="hero-subtitle">
                 El primer bar moderno de Corrubedo. Tapas gallegas auténticas,
                 terraza con vistas al Atlántico y buen ambiente.
             </p>
             <div class="hero-buttons">
-                <a href="#contacto" class="btn btn-primary">Reserva tu Mesa</a>
+                <span class="btn btn-primary" style="opacity: 0.6; cursor: not-allowed;">Reservas Próximamente</span>
                 <a href="#oferta" class="btn btn-secondary">Ver Carta</a>
             </div>
         </div>
@@ -917,71 +915,143 @@
         </div>
     </section>
 
-    <!-- OFERTA / CARTA -->
+    <!-- DESAYUNOS -->
     <section class="oferta" id="oferta">
         <div class="container">
-            <h2 class="section-title">Nuestra Oferta</h2>
+            <h2 class="section-title">Desayunos</h2>
             <p class="section-subtitle">
-                Tapas gallegas tradicionales, bocadillos generosos y bebidas premium.
+                Desayunos artesanales, cafés Nespresso y opciones dulces y saladas.
+                Empieza el día con energía.
+            </p>
+
+            <div class="oferta-grid">
+                <!-- CREPES Y TOSTADAS -->
+                <div class="oferta-card">
+                    <div class="oferta-card-header">
+                        <div class="oferta-card-icon">🥞</div>
+                        <h3>Crepes & Tostadas</h3>
+                        <p>Dulces y salados</p>
+                    </div>
+                    <div class="oferta-card-body">
+                        <ul>
+                            <li>Crepes con chocolate, fresa, azúcar glass, nata</li>
+                            <li>Tostada de aguacate y salmón</li>
+                            <li>Tostada de jamón serrano, aceite y tomate</li>
+                            <li>Tostada mixta</li>
+                            <li>Crepe salado de jamón y queso</li>
+                            <li>Crepe salado de queso de cabra, champiñones y cebolla caramelizada</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- CROISSANTS Y COOKIES -->
+                <div class="oferta-card">
+                    <div class="oferta-card-header">
+                        <div class="oferta-card-icon">🥐</div>
+                        <h3>Croissants & Cookies</h3>
+                        <p>Recién horneados</p>
+                    </div>
+                    <div class="oferta-card-body">
+                        <ul>
+                            <li>Croissant dulce de Nutella</li>
+                            <li>Croissant dulce de pistacho</li>
+                            <li>Croissant salado de jamón y queso</li>
+                            <li>Croissant salado de cebolla caramelizada con queso de cabra</li>
+                            <li>Cookies de chocolate blanco</li>
+                            <li>Cookies de chocolate</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- CAFÉS Y MATCHA -->
+                <div class="oferta-card">
+                    <div class="oferta-card-header">
+                        <div class="oferta-card-icon">☕</div>
+                        <h3>Cafés & Matcha</h3>
+                        <p>Nespresso y bebidas especiales</p>
+                    </div>
+                    <div class="oferta-card-body">
+                        <ul>
+                            <li>Café solo, cortado, con leche</li>
+                            <li>Opciones: sin lactosa, normal, avena, coco, almendras</li>
+                            <li>Matcha clásico</li>
+                            <li>Matcha de mango, coco, fresa o vainilla</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- PINCHOS DEL DÍA - DESTACADO -->
+            <div style="margin-top: 60px; padding: 40px; background: linear-gradient(135deg, var(--azul-atlantico), var(--verde-litoral)); border-radius: 20px; text-align: center; color: var(--blanco);">
+                <div style="font-size: 2.5rem; margin-bottom: 15px;">🍴</div>
+                <h3 style="font-size: 1.8rem; margin-bottom: 10px; color: var(--blanco);">Pinchos del Día</h3>
+                <p style="font-size: 1.1rem; margin-bottom: 20px; opacity: 0.9;">Incluidos con tu bebida</p>
+                <div style="display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; font-size: 1.1rem;">
+                    <span>• Callos</span>
+                    <span>• Tortilla</span>
+                    <span>• Bocatín de lomo con queso</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CARTA COMPLETA (PRÓXIMAMENTE) -->
+    <section class="oferta" id="carta" style="background: var(--blanco);">
+        <div class="container">
+            <h2 class="section-title">Carta Completa</h2>
+            <p class="section-subtitle">
+                Próximamente: Raciones, tapas, bocadillos gourmet y hamburguesas artesanales.
                 Todo con producto local y preparación cuidada.
             </p>
 
             <div class="oferta-grid">
-                <!-- TAPAS -->
-                <div class="oferta-card">
+                <!-- RACIONES / TAPAS -->
+                <div class="oferta-card" style="opacity: 0.6;">
                     <div class="oferta-card-header">
                         <div class="oferta-card-icon">🍤</div>
-                        <h3>Tapas Gallegas</h3>
-                        <p>Raciones generosas</p>
+                        <h3>Raciones / Tapas</h3>
+                        <p>Próximamente</p>
                     </div>
                     <div class="oferta-card-body">
                         <ul>
-                            <li>Pimientos de Padrón <span class="precio">7€</span></li>
-                            <li>Raxo gallego <span class="precio">8€</span></li>
-                            <li>Chocos frescos <span class="precio">8€</span></li>
-                            <li>Calamares <span class="precio">8€</span></li>
-                            <li>Croquetas variadas <span class="precio">7€</span></li>
-                            <li>Fingers de pollo <span class="precio">7€</span></li>
+                            <li>Raxo atlántico de pollo con mostaza y soja</li>
+                            <li>Raxo de cerdo tradicional</li>
+                            <li>Patatas bravas y alioli</li>
+                            <li>Hummus de remolacha</li>
                         </ul>
                     </div>
                 </div>
 
                 <!-- BOCADILLOS -->
-                <div class="oferta-card">
+                <div class="oferta-card" style="opacity: 0.6;">
                     <div class="oferta-card-header">
                         <div class="oferta-card-icon">🥖</div>
                         <h3>Bocadillos</h3>
-                        <p>Pan de panadería local</p>
+                        <p>Próximamente</p>
                     </div>
                     <div class="oferta-card-body">
                         <ul>
-                            <li>Bocadillos fríos <span class="precio">4,50€</span></li>
-                            <li>Barra grande <span class="precio">5-6€</span></li>
-                            <li>Bocadillos calientes <span class="precio">7-8€</span></li>
-                            <li style="border: none; padding-top: 20px; opacity: 0.7;">
-                                Ingredientes frescos y porciones generosas
-                            </li>
+                            <li>Tortilla francesa con queso</li>
+                            <li>Bacon, queso, huevo y salsa BBQ</li>
+                            <li>Pollo crispy con lechuga, parmesano y salsa césar</li>
+                            <li>Lacón con rúcula, parmesano y aceite con pimentón</li>
                         </ul>
                     </div>
                 </div>
 
-                <!-- BEBIDAS -->
-                <div class="oferta-card">
+                <!-- HAMBURGUESAS -->
+                <div class="oferta-card" style="opacity: 0.6;">
                     <div class="oferta-card-header">
-                        <div class="oferta-card-icon">🍹</div>
-                        <h3>Bebidas</h3>
-                        <p>Selección premium</p>
+                        <div class="oferta-card-icon">🍔</div>
+                        <h3>Hamburguesas</h3>
+                        <p>Próximamente</p>
                     </div>
                     <div class="oferta-card-body">
                         <ul>
-                            <li>Cervezas artesanas gallegas</li>
-                            <li>Vinos de la tierra</li>
-                            <li>Albariño, Ribeiro, Mencía</li>
-                            <li>Mojitos y cócteles de autor</li>
-                            <li>Gin tonics premium</li>
-                            <li style="border: none; padding-top: 10px; opacity: 0.7;">
-                                Happy Hour: 18:00-20:00
-                            </li>
+                            <li>Original: ternera a la plancha con lechuga, tomate, queso, huevo y cebolla</li>
+                            <li>Trufada: ternera con salsa trufada, lechuga y queso</li>
+                            <li>Queso de cabra: ternera con queso de cabra, huevo, cebolla caramelizada y bacon</li>
                         </ul>
                     </div>
                 </div>
@@ -1031,9 +1101,9 @@
                         </div>
                     </div>
 
-                    <a href="#contacto" class="btn btn-secondary" style="margin-top: 30px;">
-                        Reserva para Eventos
-                    </a>
+                    <span class="btn btn-secondary" style="margin-top: 30px; opacity: 0.6; cursor: not-allowed;">
+                        Reservas Próximamente
+                    </span>
                 </div>
 
                 <div class="terraza-stats">
@@ -1120,7 +1190,7 @@
                             <h4>Ubicación</h4>
                             <p>
                                 Rúa da Eirexa, 13, bajo<br>
-                                15868 Ribeira, A Coruña<br>
+                                15969 Ribeira, A Coruña<br>
                                 Galicia, España
                             </p>
                         </div>
@@ -1131,10 +1201,8 @@
                         <div class="info-content">
                             <h4>Horario</h4>
                             <p>
-                                <strong>Lunes:</strong> Cerrado<br>
-                                <strong>Mar-Jue:</strong> 12:00-23:00<br>
-                                <strong>Vie-Dom:</strong> 12:00-01:00<br>
-                                <em>Verano: Todos los días 11:00-01:00</em>
+                                <strong>Lunes-Jueves:</strong> 9:00-22:00<br>
+                                <strong>Viernes-Domingo:</strong> 9:00-00:00
                             </p>
                         </div>
                     </div>
@@ -1144,8 +1212,7 @@
                         <div class="info-content">
                             <h4>Contacto</h4>
                             <p>
-                                Email: contacto@orixeatlantico.com<br>
-                                Tel: +34 XXX XXX XXX<br>
+                                Email: info@orixeatlantico.com<br>
                                 Instagram: @orixeatlantico
                             </p>
                         </div>
@@ -1171,10 +1238,10 @@
     <section class="cta">
         <div class="container">
             <h2>¿Listo para Vivir la Experiencia?</h2>
-            <p>Reserva tu mesa y descubre el bar más moderno de Corrubedo</p>
-            <a href="mailto:contacto@orixeatlantico.com" class="btn btn-primary">
-                Reservar Ahora
-            </a>
+            <p>Muy pronto podrás reservar tu mesa en el bar más moderno de Corrubedo</p>
+            <span class="btn btn-primary" style="opacity: 0.6; cursor: not-allowed;">
+                Reservas Próximamente
+            </span>
         </div>
     </section>
 
@@ -1205,18 +1272,15 @@
 
                 <div class="footer-section">
                     <h3>Horario</h3>
-                    <p>Lunes: Cerrado</p>
-                    <p>Martes-Jueves: 12:00-23:00</p>
-                    <p>Viernes-Domingo: 12:00-01:00</p>
-                    <p><em>Verano: Todos los días 11:00-01:00</em></p>
+                    <p>Lunes-Jueves: 9:00-22:00</p>
+                    <p>Viernes-Domingo: 9:00-00:00</p>
                 </div>
 
                 <div class="footer-section">
                     <h3>Contacto</h3>
                     <p>Rúa da Eirexa, 13, bajo</p>
-                    <p>15868 Ribeira, A Coruña</p>
-                    <p>contacto@orixeatlantico.com</p>
-                    <p>Tel: +34 XXX XXX XXX</p>
+                    <p>15969 Ribeira, A Coruña</p>
+                    <p>info@orixeatlantico.com</p>
                 </div>
             </div>
 
