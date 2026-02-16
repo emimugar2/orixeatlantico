@@ -21,13 +21,10 @@
 
     <style>
         :root {
-            --azul-atlantico: #0A4B78;
-            --arena-dorada: #E8D4A2;
-            --verde-litoral: #2C5F54;
-            --blanco: #FFFFFF;
             --negro: #1A1A1A;
+            --gris: #666;
             --gris-claro: #F8F8F8;
-            --gris-medio: #E5E5E5;
+            --rojo: #B5413F;
         }
 
         * {
@@ -39,23 +36,23 @@
         body {
             font-family: 'Montserrat', sans-serif;
             color: var(--negro);
-            background: var(--gris-claro);
-            line-height: 1.6;
+            background: white;
+            line-height: 1.7;
+            font-size: 15px;
         }
 
         /* Header */
         .header {
-            background: var(--azul-atlantico);
-            color: var(--blanco);
-            padding: 20px 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            background: white;
+            padding: 15px 0;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
             position: sticky;
             top: 0;
             z-index: 1000;
         }
 
         .header-content {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 30px;
             display: flex;
@@ -63,274 +60,264 @@
             align-items: center;
         }
 
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            text-decoration: none;
-        }
-
         .logo img {
-            height: 50px;
+            height: 45px;
         }
 
         .nav-links {
             display: flex;
-            gap: 30px;
-            align-items: center;
+            gap: 25px;
         }
 
         .nav-links a {
-            color: var(--blanco);
+            color: var(--negro);
             text-decoration: none;
             font-weight: 500;
+            font-size: 14px;
             transition: color 0.3s;
         }
 
         .nav-links a:hover {
-            color: var(--arena-dorada);
+            color: var(--rojo);
         }
 
-        /* Hero Carta */
-        .carta-hero {
-            background: linear-gradient(135deg, var(--azul-atlantico), var(--verde-litoral));
-            color: var(--blanco);
-            padding: 60px 30px;
+        /* Page Header */
+        .page-header {
             text-align: center;
+            padding: 60px 30px 40px;
+            background: white;
         }
 
-        .carta-hero h1 {
+        .page-header h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
-            margin-bottom: 15px;
-            font-weight: 700;
+            font-size: 4rem;
+            font-weight: 400;
+            letter-spacing: 8px;
+            margin-bottom: 5px;
         }
 
-        .carta-hero p {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        /* Menu Navigation */
-        .menu-nav {
-            background: var(--blanco);
-            padding: 25px 0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            position: sticky;
-            top: 90px;
-            z-index: 100;
-        }
-
-        .menu-nav-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 30px;
-            display: flex;
-            gap: 20px;
-            overflow-x: auto;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .menu-nav-btn {
-            padding: 10px 25px;
-            border-radius: 25px;
-            background: var(--gris-claro);
-            color: var(--negro);
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s;
-            white-space: nowrap;
-            font-size: 0.95rem;
-        }
-
-        .menu-nav-btn:hover {
-            background: var(--azul-atlantico);
-            color: var(--blanco);
-            transform: translateY(-2px);
+        .page-header .subtitle {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 400;
+            letter-spacing: 6px;
         }
 
         /* Container */
         .container {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 60px 30px;
+            padding: 0 30px;
+        }
+
+        /* Page */
+        .page {
+            padding: 60px 0;
+            border-bottom: 1px solid #E5E5E5;
+        }
+
+        .page:last-child {
+            border-bottom: none;
+        }
+
+        /* Two Column Layout */
+        .two-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
         }
 
         /* Section */
-        .menu-section {
-            margin-bottom: 80px;
-            scroll-margin-top: 180px;
-        }
-
-        .section-header {
-            text-align: center;
+        .section {
             margin-bottom: 50px;
         }
 
-        .section-header h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.8rem;
-            color: var(--azul-atlantico);
-            margin-bottom: 15px;
+        .section:last-child {
+            margin-bottom: 0;
         }
 
-        .section-header p {
-            font-size: 1.1rem;
-            color: #666;
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            border-bottom: 1px solid var(--negro);
+            padding-bottom: 12px;
+        }
+
+        .section-subtitle {
+            font-size: 0.95rem;
+            color: var(--gris);
+            margin-bottom: 25px;
             font-style: italic;
         }
 
-        /* Menu Grid */
-        .menu-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
+        /* Category */
+        .category {
+            margin-bottom: 30px;
         }
 
-        /* Menu Card */
-        .menu-card {
-            background: var(--blanco);
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-            transition: transform 0.3s, box-shadow 0.3s;
+        .category:last-child {
+            margin-bottom: 0;
         }
 
-        .menu-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
-        }
-
-        .menu-card-header {
-            background: linear-gradient(135deg, var(--azul-atlantico), var(--verde-litoral));
-            color: var(--blanco);
-            padding: 25px;
-            text-align: center;
-        }
-
-        .menu-card-icon {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
-
-        .menu-card-header h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.6rem;
+        .category-name {
+            font-weight: 600;
+            font-size: 1.05rem;
             margin-bottom: 8px;
         }
 
-        .menu-card-header p {
-            font-size: 0.95rem;
-            opacity: 0.9;
+        .category-desc {
+            font-size: 0.9rem;
+            color: var(--gris);
+            margin-bottom: 12px;
+            line-height: 1.5;
         }
 
-        .menu-card-body {
-            padding: 30px;
+        /* Menu Items */
+        .menu-items {
+            margin: 0;
+            padding: 0;
+            list-style: none;
         }
 
         .menu-item {
             display: flex;
             justify-content: space-between;
-            align-items: flex-start;
-            padding: 12px 0;
-            border-bottom: 1px dotted var(--gris-medio);
-        }
-
-        .menu-item:last-child {
-            border-bottom: none;
-        }
-
-        .menu-item-name {
-            flex: 1;
-            font-weight: 500;
-            color: var(--negro);
+            align-items: baseline;
+            padding: 6px 0;
             line-height: 1.5;
         }
 
-        .menu-item-price {
-            color: var(--azul-atlantico);
+        .menu-item::before {
+            content: '•';
+            margin-right: 8px;
+            color: var(--negro);
+        }
+
+        .item-name {
+            flex: 1;
+            font-size: 0.95rem;
+        }
+
+        .item-price {
             font-weight: 600;
             margin-left: 15px;
             white-space: nowrap;
         }
 
         .menu-note {
+            font-size: 0.85rem;
+            color: var(--gris);
+            margin-top: 8px;
+            padding-left: 18px;
+            line-height: 1.6;
+        }
+
+        /* Sabores Box */
+        .sabores {
             font-size: 0.9rem;
-            color: #888;
-            font-style: italic;
             margin-top: 15px;
-            padding-top: 15px;
-            border-top: 1px solid var(--gris-medio);
-        }
-
-        .sabores-box {
+            padding: 15px;
             background: var(--gris-claro);
-            padding: 20px;
-            border-radius: 10px;
-            margin-top: 20px;
+            border-radius: 5px;
         }
 
-        .sabores-box strong {
-            color: var(--azul-atlantico);
+        .sabores strong {
             display: block;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
+            font-weight: 600;
         }
 
-        .sabores-box p {
-            font-size: 0.95rem;
-            color: #555;
-            line-height: 1.8;
+        .sabores-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .sabor-group {
+            font-size: 0.85rem;
+        }
+
+        .sabor-group strong {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .sabor-group ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sabor-group li {
+            padding: 2px 0;
         }
 
         /* Category Title */
         .category-title {
             font-weight: 600;
-            color: var(--azul-atlantico);
-            padding: 15px 0 10px;
-            border-bottom: 2px solid var(--azul-atlantico);
+            font-size: 0.95rem;
             margin: 20px 0 10px;
-            font-size: 1.05rem;
+            padding-top: 15px;
+            border-top: 1px solid #E5E5E5;
+        }
+
+        .category-title:first-child {
+            margin-top: 0;
+            padding-top: 0;
+            border-top: none;
         }
 
         /* Footer */
         .footer {
             background: var(--negro);
-            color: var(--blanco);
-            padding: 40px 30px;
+            color: white;
+            padding: 30px;
             text-align: center;
+            font-size: 0.9rem;
         }
 
         .footer p {
-            opacity: 0.7;
+            margin: 5px 0;
+            opacity: 0.8;
         }
 
         /* Responsive */
-        @media (max-width: 768px) {
-            .carta-hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .section-header h2 {
-                font-size: 2rem;
-            }
-
-            .menu-grid {
+        @media (max-width: 900px) {
+            .two-columns {
                 grid-template-columns: 1fr;
+                gap: 40px;
             }
 
-            .menu-nav {
-                top: 85px;
+            .page-header h1 {
+                font-size: 3rem;
+                letter-spacing: 4px;
             }
 
-            .menu-nav-content {
-                justify-content: flex-start;
+            .page-header .subtitle {
+                font-size: 2.2rem;
+                letter-spacing: 3px;
+            }
+
+            .sabores-grid {
+                grid-template-columns: 1fr;
+                gap: 10px;
             }
 
             .nav-links {
                 display: none;
+            }
+        }
+
+        @media print {
+            .header {
+                position: static;
+            }
+            .page {
+                page-break-inside: avoid;
             }
         }
     </style>
@@ -356,981 +343,981 @@
         </div>
     </header>
 
-    <!-- Hero -->
-    <section class="carta-hero">
-        <h1>Nuestra Carta</h1>
-        <p>Descubre nuestra selección de sabores gallegos con un toque atlántico</p>
-    </section>
+    <!-- Page Header -->
+    <div class="page-header">
+        <h1>ORIXE</h1>
+        <div class="subtitle">ATLÁNTICO</div>
+    </div>
 
-    <!-- Menu Navigation -->
-    <nav class="menu-nav">
-        <div class="menu-nav-content">
-            <a href="#mar-dulce" class="menu-nav-btn">Mar Dulce</a>
-            <a href="#mar-salado" class="menu-nav-btn">Mar Salado</a>
-            <a href="#calor-faro" class="menu-nav-btn">Calor de Faro</a>
-            <a href="#brisa-helada" class="menu-nav-btn">Brisa Helada</a>
-            <a href="#bruma-caliente" class="menu-nav-btn">Bebidas Calientes</a>
-            <a href="#bruma-fria" class="menu-nav-btn">Bebidas Frías</a>
-            <a href="#sabores-puerto" class="menu-nav-btn">Sabores de Puerto</a>
-            <a href="#noche-faro" class="menu-nav-btn">Noche de Faro</a>
+    <!-- Página 1: MAR DULCE + MAR SALADO -->
+    <div class="page">
+        <div class="container">
+            <div class="two-columns">
+                <!-- MAR DULCE -->
+                <div class="section">
+                    <h2 class="section-title">MAR DULCE</h2>
+
+                    <div class="category">
+                        <div class="category-name">Crêpes</div>
+                        <div class="category-desc">Recién hecho, dorado y con olor a "me lo merezco".</div>
+                        <ul class="menu-items">
+                            <li class="menu-item">
+                                <span class="item-name">Crêpes</span>
+                                <span class="item-price">3,5</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="category">
+                        <div class="category-name">Gofres</div>
+                        <div class="category-desc">Tu pausa dulce con textura de "wow".</div>
+                        <ul class="menu-items">
+                            <li class="menu-item">
+                                <span class="item-name">Gofres</span>
+                                <span class="item-price">3</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="category">
+                        <div class="category-name">Tortitas</div>
+                        <div class="category-desc">Un desayuno de los que se disfrutan lento (aunque se acaban rápido).</div>
+                        <ul class="menu-items">
+                            <li class="menu-item">
+                                <span class="item-name">Tortitas</span>
+                                <span class="item-price">3,2</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="menu-note">
+                        <strong>+ Agrega tu topping favorito</strong><br>
+                        Nutella, chocolate blanco (Milkybar), vainilla, miel o pistacho. <strong>0,5</strong><br>
+                        Bola de helado <strong>1,5</strong>
+                    </div>
+                </div>
+
+                <!-- MAR SALADO -->
+                <div class="section">
+                    <h2 class="section-title">MAR SALADO</h2>
+
+                    <div class="category">
+                        <div class="category-name">Tostadas</div>
+                        <div class="category-desc">Sabor de toda la vida, en su mejor versión.</div>
+                        <ul class="menu-items">
+                            <li class="menu-item">
+                                <span class="item-name">Mantequilla</span>
+                                <span class="item-price">2,5</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Aceite</span>
+                                <span class="item-price">2,5</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Mermelada</span>
+                                <span class="item-price">2,5</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Jamón serrano y tomate</span>
+                                <span class="item-price">4</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Queso crema, aguacate y salmón</span>
+                                <span class="item-price">4,5</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="category">
+                        <div class="category-name">Bagels:</div>
+                        <div class="category-desc">La mezcla perfecta entre "me cuido" y "me lo gozo".</div>
+                        <ul class="menu-items">
+                            <li class="menu-item">
+                                <span class="item-name">Queso crema, aguacate y salmón</span>
+                                <span class="item-price">4,5</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Queso crema, rúcula y tomate</span>
+                                <span class="item-price">4,5</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="category">
+                        <div class="category-name">Croissants salados</div>
+                        <div class="category-desc">Hojaldre dorado, corazón salado.</div>
+                        <ul class="menu-items">
+                            <li class="menu-item">
+                                <span class="item-name">Semillas</span>
+                                <span class="item-price">2,1</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Queso crema, rúcula y salmón</span>
+                                <span class="item-price">4,5</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Segunda fila -->
+            <div class="two-columns" style="margin-top: 50px;">
+                <!-- Cookies -->
+                <div class="section">
+                    <div class="category">
+                        <div class="category-name">Cookies:</div>
+                        <div class="category-desc">Hazla tuya: aquí se viene a disfrutar.</div>
+                        <ul class="menu-items">
+                            <li class="menu-item">
+                                <span class="item-name">Triple chocolate</span>
+                                <span class="item-price">2,5</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Original</span>
+                                <span class="item-price">2,5</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Red Velvet</span>
+                                <span class="item-price">2,5</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="category">
+                        <div class="category-name">Croissants dulces</div>
+                        <div class="category-desc">Si lo pruebas una vez, lo repites siempre.</div>
+                        <ul class="menu-items">
+                            <li class="menu-item">
+                                <span class="item-name">Mantequilla</span>
+                                <span class="item-price">1,6</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Nutella / Nocilla</span>
+                                <span class="item-price">2,2</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Chocolate blanco</span>
+                                <span class="item-price">2,2</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Pistacho</span>
+                                <span class="item-price">2,5</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="category">
+                        <div class="category-name">Churros</div>
+                        <div class="category-desc">Hay clásicos que nunca pasan de moda.</div>
+                        <ul class="menu-items">
+                            <li class="menu-item">
+                                <span class="item-name">Media docena</span>
+                                <span class="item-price">2,5</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Docena</span>
+                                <span class="item-price">4,5</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <!-- Espacio vacío o información adicional -->
+                </div>
+            </div>
         </div>
-    </nav>
+    </div>
 
-    <div class="container">
-        <!-- MAR DULCE -->
-        <section id="mar-dulce" class="menu-section">
-            <div class="section-header">
-                <h2>Mar Dulce</h2>
-                <p>Desayunos artesanales y dulces recién horneados</p>
-            </div>
+    <!-- Página 2: CALOR DE FARO + BRISA HELADA -->
+    <div class="page">
+        <div class="container">
+            <div class="two-columns">
+                <!-- CALOR DE FARO -->
+                <div class="section">
+                    <h2 class="section-title">CALOR DE FARO</h2>
 
-            <div class="menu-grid">
-                <div class="menu-card">
-                    <div class="menu-card-header">
-                        <div class="menu-card-icon">🥞</div>
-                        <h3>Crêpes</h3>
-                        <p>Recién hecho, dorado y con olor a "me lo merezco"</p>
+                    <div class="category">
+                        <div class="category-name">Pizzas</div>
+                        <div class="category-desc">"El círculo perfecto para encender tu apetito".</div>
+                        <ul class="menu-items">
+                            <li class="menu-item">
+                                <span class="item-name">Pizza 4 estaciones</span>
+                                <span class="item-price">11,5</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Pizza vegana</span>
+                                <span class="item-price">11,5</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Pizza barbacoa</span>
+                                <span class="item-price">12</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Pizza jamón y cheddar</span>
+                                <span class="item-price">12</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Pizza bacon y champiñones</span>
+                                <span class="item-price">12</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Pizza 4 quesos</span>
+                                <span class="item-price">13</span>
+                            </li>
+                        </ul>
                     </div>
-                    <div class="menu-card-body">
-                        <div class="menu-item">
-                            <span class="menu-item-name">Crêpes</span>
-                            <span class="menu-item-price">3,50€</span>
-                        </div>
-                        <p class="menu-note">+ Toppings (0,50€): Nutella, chocolate blanco, vainilla, miel, pistacho<br>Bola de helado: 1,50€</p>
-                    </div>
-                </div>
 
-                <div class="menu-card">
-                    <div class="menu-card-header">
-                        <div class="menu-card-icon">🧇</div>
-                        <h3>Gofres</h3>
-                        <p>Tu pausa dulce con textura de "wow"</p>
+                    <div class="category">
+                        <div class="category-name">Bocadillos</div>
+                        <div class="category-desc">Sabor de toda la vida, en su mejor versión.</div>
+                        <ul class="menu-items">
+                            <li class="menu-item">
+                                <span class="item-name">Lomo</span>
+                                <span class="item-price">4,8</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Lomo con queso</span>
+                                <span class="item-price">5,8</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Raxo (lomo fresco)</span>
+                                <span class="item-price">4,8</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Raxo (lomo fresco) con queso</span>
+                                <span class="item-price">5,8</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Pechuga de pollo</span>
+                                <span class="item-price">5</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Pechuga de pollo con queso y vegetales</span>
+                                <span class="item-price">6,4</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Bacon</span>
+                                <span class="item-price">4,8</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Bacon con queso</span>
+                                <span class="item-price">5,8</span>
+                            </li>
+                        </ul>
                     </div>
-                    <div class="menu-card-body">
-                        <div class="menu-item">
-                            <span class="menu-item-name">Gofres</span>
-                            <span class="menu-item-price">3,00€</span>
-                        </div>
-                        <p class="menu-note">+ Toppings (0,50€): Nutella, chocolate blanco, vainilla, miel, pistacho</p>
-                    </div>
-                </div>
 
-                <div class="menu-card">
-                    <div class="menu-card-header">
-                        <div class="menu-card-icon">🥞</div>
-                        <h3>Tortitas</h3>
-                        <p>Un desayuno de los que se disfrutan lento</p>
-                    </div>
-                    <div class="menu-card-body">
-                        <div class="menu-item">
-                            <span class="menu-item-name">Tortitas</span>
-                            <span class="menu-item-price">3,20€</span>
-                        </div>
-                        <p class="menu-note">+ Agrega tu topping favorito (0,50€)</p>
-                    </div>
-                </div>
-
-                <div class="menu-card">
-                    <div class="menu-card-header">
-                        <div class="menu-card-icon">🍪</div>
-                        <h3>Cookies</h3>
-                        <p>Hazla tuya: aquí se viene a disfrutar</p>
-                    </div>
-                    <div class="menu-card-body">
-                        <div class="menu-item">
-                            <span class="menu-item-name">Triple chocolate</span>
-                            <span class="menu-item-price">2,50€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Original</span>
-                            <span class="menu-item-price">2,50€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Red Velvet</span>
-                            <span class="menu-item-price">2,50€</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="menu-card">
-                    <div class="menu-card-header">
-                        <div class="menu-card-icon">🥐</div>
-                        <h3>Croissants Dulces</h3>
-                        <p>Si lo pruebas una vez, lo repites siempre</p>
-                    </div>
-                    <div class="menu-card-body">
-                        <div class="menu-item">
-                            <span class="menu-item-name">Mantequilla</span>
-                            <span class="menu-item-price">1,60€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Nutella / Nocilla</span>
-                            <span class="menu-item-price">2,20€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Chocolate blanco</span>
-                            <span class="menu-item-price">2,20€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Pistacho</span>
-                            <span class="menu-item-price">2,50€</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="menu-card">
-                    <div class="menu-card-header">
-                        <div class="menu-card-icon">🥨</div>
-                        <h3>Churros</h3>
-                        <p>Hay clásicos que nunca pasan de moda</p>
-                    </div>
-                    <div class="menu-card-body">
-                        <div class="menu-item">
-                            <span class="menu-item-name">Media docena</span>
-                            <span class="menu-item-price">2,50€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Docena</span>
-                            <span class="menu-item-price">4,50€</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- MAR SALADO -->
-        <section id="mar-salado" class="menu-section">
-            <div class="section-header">
-                <h2>Mar Salado</h2>
-                <p>Sabor de toda la vida, en su mejor versión</p>
-            </div>
-
-            <div class="menu-grid">
-                <div class="menu-card">
-                    <div class="menu-card-header">
-                        <div class="menu-card-icon">🍞</div>
-                        <h3>Tostadas</h3>
-                        <p>Sabor de toda la vida</p>
-                    </div>
-                    <div class="menu-card-body">
-                        <div class="menu-item">
-                            <span class="menu-item-name">Mantequilla</span>
-                            <span class="menu-item-price">2,50€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Aceite</span>
-                            <span class="menu-item-price">2,50€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Mermelada</span>
-                            <span class="menu-item-price">2,50€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Jamón serrano y tomate</span>
-                            <span class="menu-item-price">4,00€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Queso crema, aguacate y salmón</span>
-                            <span class="menu-item-price">4,50€</span>
+                    <div class="category">
+                        <div class="category-name">Hamburguesas</div>
+                        <div class="category-desc">Contundencia a dos manos para calmar la marea interior.</div>
+                        <ul class="menu-items">
+                            <li class="menu-item">
+                                <span class="item-name">Hamburguesa simple</span>
+                                <span class="item-price">4,2</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Hamburguesa con queso</span>
+                                <span class="item-price">5</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Hamburguesa completa (queso, vegetales, huevo)</span>
+                                <span class="item-price">6,4</span>
+                            </li>
+                        </ul>
+                        <div class="menu-note">
+                            <strong>+ Agrega tu extra</strong><br>
+                            Cebolla | lechuga | tomate <strong>0,5</strong><br>
+                            Huevo | Queso | Vegetales (tomate, lechuga y cebolla) <strong>1</strong><br>
+                            Cebolla o lechuga o tomate <strong>1,2</strong>
                         </div>
                     </div>
                 </div>
 
-                <div class="menu-card">
-                    <div class="menu-card-header">
-                        <div class="menu-card-icon">🥯</div>
-                        <h3>Bagels</h3>
-                        <p>La mezcla perfecta entre "me cuido" y "me lo gozo"</p>
-                    </div>
-                    <div class="menu-card-body">
-                        <div class="menu-item">
-                            <span class="menu-item-name">Queso crema, aguacate y salmón</span>
-                            <span class="menu-item-price">4,50€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Queso crema, rúcula y tomate</span>
-                            <span class="menu-item-price">4,50€</span>
-                        </div>
-                    </div>
-                </div>
+                <!-- BRISA HELADA -->
+                <div class="section">
+                    <h2 class="section-title">BRISA HELADA</h2>
 
-                <div class="menu-card">
-                    <div class="menu-card-header">
-                        <div class="menu-card-icon">🥐</div>
-                        <h3>Croissants Salados</h3>
-                        <p>Hojaldre dorado, corazón salado</p>
-                    </div>
-                    <div class="menu-card-body">
-                        <div class="menu-item">
-                            <span class="menu-item-name">Semillas</span>
-                            <span class="menu-item-price">2,10€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Queso crema, rúcula y salmón</span>
-                            <span class="menu-item-price">4,50€</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+                    <div class="category">
+                        <div class="category-name">Helados</div>
+                        <div class="category-desc">El capricho frío que siempre sienta bien.</div>
+                        <ul class="menu-items">
+                            <li class="menu-item">
+                                <span class="item-name">Tarrina pequeña</span>
+                                <span class="item-price">3,3</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Tarrina grande</span>
+                                <span class="item-price">4,3</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Cubo</span>
+                                <span class="item-price">12,9</span>
+                            </li>
+                        </ul>
 
-        <!-- CALOR DE FARO -->
-        <section id="calor-faro" class="menu-section">
-            <div class="section-header">
-                <h2>Calor de Faro</h2>
-                <p>El círculo perfecto para encender tu apetito</p>
-            </div>
-
-            <div class="menu-grid">
-                <div class="menu-card">
-                    <div class="menu-card-header">
-                        <div class="menu-card-icon">🍕</div>
-                        <h3>Pizzas</h3>
-                        <p>El círculo perfecto</p>
-                    </div>
-                    <div class="menu-card-body">
-                        <div class="menu-item">
-                            <span class="menu-item-name">Pizza 4 estaciones</span>
-                            <span class="menu-item-price">11,50€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Pizza vegana</span>
-                            <span class="menu-item-price">11,50€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Pizza barbacoa</span>
-                            <span class="menu-item-price">12,00€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Pizza jamón y cheddar</span>
-                            <span class="menu-item-price">12,00€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Pizza bacon y champiñones</span>
-                            <span class="menu-item-price">12,00€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Pizza 4 quesos</span>
-                            <span class="menu-item-price">13,00€</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="menu-card">
-                    <div class="menu-card-header">
-                        <div class="menu-card-icon">🥖</div>
-                        <h3>Bocadillos</h3>
-                        <p>Sabor de toda la vida</p>
-                    </div>
-                    <div class="menu-card-body">
-                        <div class="menu-item">
-                            <span class="menu-item-name">Lomo</span>
-                            <span class="menu-item-price">4,80€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Lomo con queso</span>
-                            <span class="menu-item-price">5,80€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Raxo (lomo fresco)</span>
-                            <span class="menu-item-price">4,80€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Raxo con queso</span>
-                            <span class="menu-item-price">5,80€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Pechuga de pollo</span>
-                            <span class="menu-item-price">5,00€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Pechuga con queso y vegetales</span>
-                            <span class="menu-item-price">6,40€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Bacon</span>
-                            <span class="menu-item-price">4,80€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Bacon con queso</span>
-                            <span class="menu-item-price">5,80€</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="menu-card">
-                    <div class="menu-card-header">
-                        <div class="menu-card-icon">🍔</div>
-                        <h3>Hamburguesas</h3>
-                        <p>Contundencia a dos manos</p>
-                    </div>
-                    <div class="menu-card-body">
-                        <div class="menu-item">
-                            <span class="menu-item-name">Hamburguesa simple</span>
-                            <span class="menu-item-price">4,20€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Hamburguesa con queso</span>
-                            <span class="menu-item-price">5,00€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Hamburguesa completa</span>
-                            <span class="menu-item-price">6,40€</span>
-                        </div>
-                        <p class="menu-note">+ Extras: Cebolla/lechuga/tomate (0,50€) · Huevo/Queso/Vegetales (1,00€)</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- BRISA HELADA -->
-        <section id="brisa-helada" class="menu-section">
-            <div class="section-header">
-                <h2>Brisa Helada</h2>
-                <p>El capricho frío que siempre sienta bien</p>
-            </div>
-
-            <div class="menu-grid">
-                <div class="menu-card">
-                    <div class="menu-card-header">
-                        <div class="menu-card-icon">🍦</div>
-                        <h3>Helados</h3>
-                        <p>El capricho frío que siempre sienta bien</p>
-                    </div>
-                    <div class="menu-card-body">
-                        <div class="menu-item">
-                            <span class="menu-item-name">Tarrina pequeña</span>
-                            <span class="menu-item-price">3,30€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Tarrina grande</span>
-                            <span class="menu-item-price">4,30€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Cubo</span>
-                            <span class="menu-item-price">12,90€</span>
-                        </div>
-                        <div class="sabores-box">
+                        <div class="sabores">
                             <strong>Sabores disponibles:</strong>
-                            <p><strong>Clásicos:</strong> Chocolate · Nata · Fresa · Limón</p>
-                            <p><strong>Especiales:</strong> Queso · Tarta de queso · Pistacho · Caramelo salado · Coco</p>
-                            <p><strong>Frutales:</strong> Mango · Maracuyá · Frutos rojos · Naranja</p>
+                            <div class="sabores-grid">
+                                <div class="sabor-group">
+                                    <strong>Clásicos</strong>
+                                    <ul>
+                                        <li>• Chocolate</li>
+                                        <li>• Nata</li>
+                                        <li>• Fresa</li>
+                                        <li>• Limón</li>
+                                    </ul>
+                                </div>
+                                <div class="sabor-group">
+                                    <strong>Especiales</strong>
+                                    <ul>
+                                        <li>• Queso</li>
+                                        <li>• Tarta de queso</li>
+                                        <li>• Pistacho</li>
+                                        <li>• Caramelo salado</li>
+                                        <li>• Coco</li>
+                                    </ul>
+                                </div>
+                                <div class="sabor-group">
+                                    <strong>Frutales</strong>
+                                    <ul>
+                                        <li>• Mango</li>
+                                        <li>• Maracuyá</li>
+                                        <li>• Frutos rojos</li>
+                                        <li>• Naranja</li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
-                        <p class="menu-note">+ Toppings (0,50€): Nutella, chocolate blanco, vainilla, miel, fresa, dulce de leche, pistacho</p>
-                    </div>
-                </div>
 
-                <div class="menu-card">
-                    <div class="menu-card-header">
-                        <div class="menu-card-icon">🥤</div>
-                        <h3>Batidos</h3>
-                        <p>Un batido denso que agita los sentidos</p>
-                    </div>
-                    <div class="menu-card-body">
-                        <div class="menu-item">
-                            <span class="menu-item-name">Batido pequeño</span>
-                            <span class="menu-item-price">4,20€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Batido grande</span>
-                            <span class="menu-item-price">5,40€</span>
+                        <div class="menu-note">
+                            <strong>+ Agrega tu topping favorito</strong><br>
+                            Nutella | Chocolate blanco | Vainilla | Miel | Fresa | Dulce de leche | Pistacho <strong>0,5</strong>
                         </div>
                     </div>
-                </div>
 
-                <div class="menu-card">
-                    <div class="menu-card-header">
-                        <div class="menu-card-icon">🥤</div>
-                        <h3>Frappé</h3>
-                        <p>Cremosos y refrescantes</p>
+                    <div class="category">
+                        <div class="category-name">Batidos</div>
+                        <div class="category-desc">Un batido denso que agita los sentidos.</div>
+                        <ul class="menu-items">
+                            <li class="menu-item">
+                                <span class="item-name">Batido pequeño</span>
+                                <span class="item-price">4,2</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Batido grande</span>
+                                <span class="item-price">5,4</span>
+                            </li>
+                        </ul>
                     </div>
-                    <div class="menu-card-body">
-                        <div class="menu-item">
-                            <span class="menu-item-name">Frappe Oreo</span>
-                            <span class="menu-item-price">4,90€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Frappe Chips Ahoy</span>
-                            <span class="menu-item-price">4,90€</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
-        <!-- BRUMA CALIENTE -->
-        <section id="bruma-caliente" class="menu-section">
-            <div class="section-header">
-                <h2>Bruma Caliente & Calma Verde</h2>
-                <p>Aroma, crema y un momento solo para ti</p>
-            </div>
-
-            <div class="menu-grid">
-                <div class="menu-card">
-                    <div class="menu-card-header">
-                        <div class="menu-card-icon">☕</div>
-                        <h3>Café</h3>
-                        <p>Aroma, crema y un momento solo para ti</p>
-                    </div>
-                    <div class="menu-card-body">
-                        <div class="menu-item">
-                            <span class="menu-item-name">Solo</span>
-                            <span class="menu-item-price">1,50€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Descafeinado</span>
-                            <span class="menu-item-price">1,50€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Cortado</span>
-                            <span class="menu-item-price">1,50€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Con leche</span>
-                            <span class="menu-item-price">1,50€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Doble carga</span>
-                            <span class="menu-item-price">1,80€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Carajillo</span>
-                            <span class="menu-item-price">2,00€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Irlandés</span>
-                            <span class="menu-item-price">4,50€</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="menu-card">
-                    <div class="menu-card-header">
-                        <div class="menu-card-icon">🍵</div>
-                        <h3>Infusiones & Chocolate</h3>
-                        <p>Un momento tranquilo que siempre sienta bien</p>
-                    </div>
-                    <div class="menu-card-body">
-                        <div class="menu-item">
-                            <span class="menu-item-name">Infusiones</span>
-                            <span class="menu-item-price">1,50€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Cola-cao</span>
-                            <span class="menu-item-price">1,80€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Chocolate caliente pequeño</span>
-                            <span class="menu-item-price">2,00€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Chocolate caliente grande</span>
-                            <span class="menu-item-price">3,00€</span>
-                        </div>
-                        <p class="menu-note">Té negro · Té rojo · Té verde · Tila · Menta Poleo<br>+ Agrega nata (0,50€)</p>
-                    </div>
-                </div>
-
-                <div class="menu-card">
-                    <div class="menu-card-header">
-                        <div class="menu-card-icon">🍵</div>
-                        <h3>Matcha</h3>
-                        <p>Ligero, fresco y con ese toque verde que engancha</p>
-                    </div>
-                    <div class="menu-card-body">
-                        <div class="menu-item">
-                            <span class="menu-item-name">Original</span>
-                            <span class="menu-item-price">3,50€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Coco</span>
-                            <span class="menu-item-price">3,50€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Fresa</span>
-                            <span class="menu-item-price">3,50€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Mango</span>
-                            <span class="menu-item-price">3,50€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Vainilla</span>
-                            <span class="menu-item-price">3,50€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Chocolate</span>
-                            <span class="menu-item-price">3,50€</span>
-                        </div>
+                    <div class="category">
+                        <div class="category-name">Frappe</div>
+                        <div class="category-desc">Un batido denso que agita los sentidos.</div>
+                        <ul class="menu-items">
+                            <li class="menu-item">
+                                <span class="item-name">Frappe Oreo</span>
+                                <span class="item-price">4,9</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Frappe Chips Ahoy</span>
+                                <span class="item-price">4,9</span>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </div>
 
-        <!-- BRUMA FRÍA -->
-        <section id="bruma-fria" class="menu-section">
-            <div class="section-header">
-                <h2>Bruma Fría</h2>
-                <p>Sorbos frescos que acompañan cualquier momento</p>
-            </div>
+    <!-- Página 3: BRUMA CALIENTE + CALMA VERDE + BRUMA FRÍA -->
+    <div class="page">
+        <div class="container">
+            <div class="two-columns">
+                <!-- BRUMA CALIENTE + CALMA VERDE -->
+                <div class="section">
+                    <h2 class="section-title">BRUMA CALIENTE</h2>
 
-            <div class="menu-grid">
-                <div class="menu-card">
-                    <div class="menu-card-header">
-                        <div class="menu-card-icon">🥤</div>
-                        <h3>Refrescos</h3>
-                        <p>Sorbos frescos para cualquier momento</p>
+                    <div class="category">
+                        <div class="category-name">Café</div>
+                        <div class="category-desc">Aroma, crema y un momento solo para ti.</div>
+                        <ul class="menu-items">
+                            <li class="menu-item">
+                                <span class="item-name">Solo</span>
+                                <span class="item-price">1,5</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Descafeinado</span>
+                                <span class="item-price">1,5</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Cortado</span>
+                                <span class="item-price">1,5</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Con leche</span>
+                                <span class="item-price">1,5</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Doble carga</span>
+                                <span class="item-price">1,8</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Carajillo</span>
+                                <span class="item-price">2</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Irlandés</span>
+                                <span class="item-price">4,5</span>
+                            </li>
+                        </ul>
                     </div>
-                    <div class="menu-card-body">
-                        <div class="menu-item">
-                            <span class="menu-item-name">Refresco</span>
-                            <span class="menu-item-price">2,50€</span>
+
+                    <div class="category">
+                        <div class="category-name">Infusiones</div>
+                        <div class="category-desc">Un momento tranquilo que siempre sienta bien.</div>
+                        <ul class="menu-items">
+                            <li class="menu-item">
+                                <span class="item-name">Té negro · Té rojo · Té verde · Tila · Menta Poleo</span>
+                                <span class="item-price">1,5</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="category">
+                        <div class="category-name">Chocolate</div>
+                        <div class="category-desc">El clásico de siempre, con sabor a capricho.</div>
+                        <ul class="menu-items">
+                            <li class="menu-item">
+                                <span class="item-name">Cola-cao</span>
+                                <span class="item-price">1,8</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Chocolate caliente pequeño</span>
+                                <span class="item-price">2</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Chocolate caliente grande</span>
+                                <span class="item-price">3</span>
+                            </li>
+                        </ul>
+                        <div class="menu-note">
+                            <strong>+ Agrega tu topping (nata) 0,5</strong>
                         </div>
+                    </div>
+
+                    <h2 class="section-title" style="margin-top: 40px;">CALMA VERDE</h2>
+
+                    <div class="category">
+                        <div class="category-name">Matcha</div>
+                        <div class="category-desc">Ligero, fresco y con ese toque verde que engancha.</div>
+                        <ul class="menu-items">
+                            <li class="menu-item">
+                                <span class="item-name">Original</span>
+                                <span class="item-price">3,5</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Coco</span>
+                                <span class="item-price">3,5</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Fresa</span>
+                                <span class="item-price">3,5</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Mango</span>
+                                <span class="item-price">3,5</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Vainilla</span>
+                                <span class="item-price">3,5</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Chocolate</span>
+                                <span class="item-price">3,5</span>
+                            </li>
+                        </ul>
                     </div>
                 </div>
 
-                <div class="menu-card">
-                    <div class="menu-card-header">
-                        <div class="menu-card-icon">🧃</div>
-                        <h3>Zumos & Agua</h3>
-                        <p>Fruta real en cada sorbo</p>
-                    </div>
-                    <div class="menu-card-body">
-                        <div class="menu-item">
-                            <span class="menu-item-name">Zumos</span>
-                            <span class="menu-item-price">2,40€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Agua (Botella cristal)</span>
-                            <span class="menu-item-price">1,80€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Agua con gas</span>
-                            <span class="menu-item-price">1,80€</span>
-                        </div>
-                        <p class="menu-note">Mango · Melocotón · Piña · Naranja</p>
-                    </div>
-                </div>
+                <!-- BRUMA FRÍA -->
+                <div class="section">
+                    <h2 class="section-title">BRUMA FRÍA</h2>
 
-                <div class="menu-card">
-                    <div class="menu-card-header">
-                        <div class="menu-card-icon">⚡</div>
-                        <h3>Bebida Energética</h3>
-                        <p>Cuando el día pide un empujón</p>
+                    <div class="category">
+                        <div class="category-name">Refrescos</div>
+                        <div class="category-desc">Sorbos frescos que acompañan cualquier momento.</div>
+                        <ul class="menu-items">
+                            <li class="menu-item">
+                                <span class="item-name">Refresco</span>
+                                <span class="item-price">2,5</span>
+                            </li>
+                        </ul>
                     </div>
-                    <div class="menu-card-body">
-                        <div class="menu-item">
-                            <span class="menu-item-name">Bebida energética</span>
-                            <span class="menu-item-price">3,00€</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
-        <!-- SABORES DE PUERTO -->
-        <section id="sabores-puerto" class="menu-section">
-            <div class="section-header">
-                <h2>Sabores de Puerto</h2>
-                <p>El romper de las olas con la espuma perfecta</p>
-            </div>
+                    <div class="category">
+                        <div class="category-name">Zumos</div>
+                        <div class="category-desc">Fruta real en cada sorbo. Ni más, ni menos.</div>
+                        <ul class="menu-items">
+                            <li class="menu-item">
+                                <span class="item-name">Mango · Melocotón · Piña · Naranja</span>
+                                <span class="item-price">2,4</span>
+                            </li>
+                        </ul>
+                    </div>
 
-            <div class="menu-grid">
-                <div class="menu-card">
-                    <div class="menu-card-header">
-                        <div class="menu-card-icon">🍺</div>
-                        <h3>Cervezas</h3>
-                        <p>El romper de las olas con la espuma perfecta</p>
+                    <div class="category">
+                        <div class="category-name">Agua</div>
+                        <div class="category-desc">Fresca y perfecta para cualquier momento.</div>
+                        <ul class="menu-items">
+                            <li class="menu-item">
+                                <span class="item-name">Botella pequeña cristal</span>
+                                <span class="item-price">1,8</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Agua con gas</span>
+                                <span class="item-price">1,8</span>
+                            </li>
+                        </ul>
                     </div>
-                    <div class="menu-card-body">
-                        <div class="menu-item">
-                            <span class="menu-item-name">Corto caña Estrella Galicia</span>
-                            <span class="menu-item-price">1,40€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Quinto Estrella</span>
-                            <span class="menu-item-price">2,10€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Clara Estrella Galicia</span>
-                            <span class="menu-item-price">2,10€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Caña Estrella Galicia</span>
-                            <span class="menu-item-price">2,30€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Copa Estrella</span>
-                            <span class="menu-item-price">2,50€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Tercio Estrella</span>
-                            <span class="menu-item-price">2,50€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Radler (Lemon)</span>
-                            <span class="menu-item-price">2,40€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Caña 1906</span>
-                            <span class="menu-item-price">2,40€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Copa 1906</span>
-                            <span class="menu-item-price">2,60€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Estrella Galicia Sin gluten</span>
-                            <span class="menu-item-price">2,50€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Sidra dulce Maeloc</span>
-                            <span class="menu-item-price">2,50€</span>
-                        </div>
-                    </div>
-                </div>
 
-                <div class="menu-card">
-                    <div class="menu-card-header">
-                        <div class="menu-card-icon">🍷</div>
-                        <h3>Vinos Blancos</h3>
-                        <p>El sabor del norte, frío y elegante</p>
-                    </div>
-                    <div class="menu-card-body">
-                        <div class="menu-item">
-                            <span class="menu-item-name">Copa Blanco de la casa</span>
-                            <span class="menu-item-price">1,90€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Copa especial blanco</span>
-                            <span class="menu-item-price">2,40€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Copa albariño Conde Albarei</span>
-                            <span class="menu-item-price">2,50€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Copa albariño Paco & Lola n12</span>
-                            <span class="menu-item-price">2,50€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Copa godello Greco e Monag.</span>
-                            <span class="menu-item-price">2,50€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Copa Ribeiro Viña Costeira</span>
-                            <span class="menu-item-price">2,40€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Copa Ribeiro catro parroquias</span>
-                            <span class="menu-item-price">2,40€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Copa Ribeiro Casal de Arman</span>
-                            <span class="menu-item-price">3,40€</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="menu-card">
-                    <div class="menu-card-header">
-                        <div class="menu-card-icon">🍷</div>
-                        <h3>Vinos Tintos</h3>
-                        <p>Para atardeceres largos</p>
-                    </div>
-                    <div class="menu-card-body">
-                        <div class="menu-item">
-                            <span class="menu-item-name">Copa Tinto de la casa</span>
-                            <span class="menu-item-price">1,90€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Copa Mencía Greco e Monag.</span>
-                            <span class="menu-item-price">2,50€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Copa Rioja Ramón Bilbao</span>
-                            <span class="menu-item-price">2,50€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Copa Protos</span>
-                            <span class="menu-item-price">2,50€</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="menu-card">
-                    <div class="menu-card-header">
-                        <div class="menu-card-icon">🥃</div>
-                        <h3>Vermuts</h3>
-                        <p>El momento perfecto entre copa y marea</p>
-                    </div>
-                    <div class="menu-card-body">
-                        <div class="category-title">Clásicos - 2,80€</div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Vermut Blanco Martini</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Vermut Rojo Martini</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Vermut Mezclado Martini</span>
-                        </div>
-                        <div class="category-title">Premium - 3,20€</div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Vermut Petroni Blanco</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Vermut Petroni Rojo</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Vermut Mezclado Petroni</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="menu-card">
-                    <div class="menu-card-header">
-                        <div class="menu-card-icon">🥃</div>
-                        <h3>Licores</h3>
-                        <p>El último trago antes de levar anclas</p>
-                    </div>
-                    <div class="menu-card-body">
-                        <div class="menu-item">
-                            <span class="menu-item-name">Licor Café</span>
-                            <span class="menu-item-price">2,50€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Licor de Hierbas</span>
-                            <span class="menu-item-price">2,50€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Crema de Orujo</span>
-                            <span class="menu-item-price">2,50€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Chupito Jägermeister</span>
-                            <span class="menu-item-price">3,00€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Chupito Tequila</span>
-                            <span class="menu-item-price">3,00€</span>
-                        </div>
+                    <div class="category">
+                        <div class="category-name">Bebida energética</div>
+                        <div class="category-desc">Cuando el día pide un empujón.</div>
+                        <ul class="menu-items">
+                            <li class="menu-item">
+                                <span class="item-name">Bebida energética</span>
+                                <span class="item-price">3</span>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </div>
 
-        <!-- NOCHE DE FARO -->
-        <section id="noche-faro" class="menu-section">
-            <div class="section-header">
-                <h2>Noche de Faro</h2>
-                <p>Cuando cae el sol, empieza la noche atlántica</p>
+    <!-- Página 4: SABORES DE PUERTO -->
+    <div class="page">
+        <div class="container">
+            <h2 class="section-title">SABORES DE PUERTO</h2>
+            <p class="section-subtitle">El romper de las olas con la espuma perfecta.</p>
+
+            <div class="two-columns">
+                <div class="section">
+                    <div class="category">
+                        <div class="category-name">Cervezas</div>
+                        <ul class="menu-items">
+                            <li class="menu-item">
+                                <span class="item-name">Corto caña Estrella Galicia</span>
+                                <span class="item-price">1,4</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Quinto Estrella</span>
+                                <span class="item-price">2,1</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Clara Estrella Galicia</span>
+                                <span class="item-price">2,1</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Caña Estrella Galicia</span>
+                                <span class="item-price">2,3</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Copa Estrella</span>
+                                <span class="item-price">2,5</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Tercio Estrella</span>
+                                <span class="item-price">2,5</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Radler (Lemon)</span>
+                                <span class="item-price">2,4</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Caña 1906</span>
+                                <span class="item-price">2,4</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Copa 1906</span>
+                                <span class="item-price">2,6</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Estrella Galicia Sin gluten</span>
+                                <span class="item-price">2,5</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Sidra dulce Maeloc</span>
+                                <span class="item-price">2,5</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="category">
+                        <div class="category-name">Vinos Blancos</div>
+                        <div class="category-desc">El sabor del norte, frío y elegante.</div>
+                        <ul class="menu-items">
+                            <li class="menu-item">
+                                <span class="item-name">Copa Blanco de la casa</span>
+                                <span class="item-price">1,9</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Copa especial blanco</span>
+                                <span class="item-price">2,4</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Copa albariño Conde Albarei</span>
+                                <span class="item-price">2,5</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Copa albariño Paco & Lola n12</span>
+                                <span class="item-price">2,5</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Copa godello Greco e Monag.</span>
+                                <span class="item-price">2,5</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Copa Ribeiro Viña Costeira</span>
+                                <span class="item-price">2,4</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Copa Ribeiro catro parroquias</span>
+                                <span class="item-price">2,4</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Copa Ribeiro Casal de Arman</span>
+                                <span class="item-price">3,4</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="category">
+                        <div class="category-name">Vinos Tintos</div>
+                        <div class="category-desc">Para atardeceres largos y conversaciones tranquilas.</div>
+                        <ul class="menu-items">
+                            <li class="menu-item">
+                                <span class="item-name">Copa Tinto de la casa</span>
+                                <span class="item-price">1,9</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Copa Mencía Greco e Monag.</span>
+                                <span class="item-price">2,5</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Copa Rioja Ramón Bilbao</span>
+                                <span class="item-price">2,5</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Copa Protos</span>
+                                <span class="item-price">2,5</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="category">
+                        <div class="category-name">Vermuts</div>
+                        <div class="category-desc">El momento perfecto entre copa y marea.</div>
+
+                        <div class="category-title">CLÁSICOS - 2,8</div>
+                        <ul class="menu-items">
+                            <li class="menu-item">
+                                <span class="item-name">Vermut Blanco Martini</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Vermut Rojo Martini</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Vermut Mezclado Martini</span>
+                            </li>
+                        </ul>
+
+                        <div class="category-title">PREMIUM - 3,2</div>
+                        <ul class="menu-items">
+                            <li class="menu-item">
+                                <span class="item-name">Vermut Petroni Blanco</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Vermut Petroni Rojo</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Vermut Mezclado Petroni</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="category">
+                        <div class="category-name">Licores</div>
+                        <div class="category-desc">El último trago antes de levar anclas.</div>
+                        <ul class="menu-items">
+                            <li class="menu-item">
+                                <span class="item-name">Licor Café</span>
+                                <span class="item-price">2,5</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Licor de Hierbas</span>
+                                <span class="item-price">2,5</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Crema de Orujo</span>
+                                <span class="item-price">2,5</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Chupito Jägermeister</span>
+                                <span class="item-price">3</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Chupito Tequila</span>
+                                <span class="item-price">3</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
+        </div>
+    </div>
 
-            <div class="menu-grid">
-                <div class="menu-card">
-                    <div class="menu-card-header">
-                        <div class="menu-card-icon">🍸</div>
-                        <h3>Ginebras</h3>
-                        <p>La esencia de la noche</p>
+    <!-- Página 5: MENSAJE EN UNA BOTELLA + NOCHE DE FARO -->
+    <div class="page">
+        <div class="container">
+            <div class="two-columns">
+                <!-- MENSAJE EN UNA BOTELLA -->
+                <div class="section">
+                    <h2 class="section-title">MENSAJE EN UNA BOTELLA</h2>
+
+                    <div class="category">
+                        <div class="category-name">Espumosos</div>
+                        <div class="category-desc">Burbuja fina para brindar sin excusas.</div>
+                        <ul class="menu-items">
+                            <li class="menu-item">
+                                <span class="item-name">Espumoso Mencía Alma Atlantica</span>
+                                <span class="item-price">16</span>
+                            </li>
+                        </ul>
                     </div>
-                    <div class="menu-card-body">
-                        <div class="menu-item">
-                            <span class="menu-item-name">Beefeater</span>
-                            <span class="menu-item-price">5,00€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Tanqueray</span>
-                            <span class="menu-item-price">5,00€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Puerto de Indias fresa</span>
-                            <span class="menu-item-price">5,50€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Puerto de Indias melón</span>
-                            <span class="menu-item-price">5,50€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Bombay Sapphire</span>
-                            <span class="menu-item-price">6,00€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Seagrams</span>
-                            <span class="menu-item-price">6,00€</span>
-                        </div>
+
+                    <div class="category">
+                        <div class="category-name">Blancos</div>
+                        <div class="category-desc">Frescura atlántica para beber sin prisa.</div>
+                        <ul class="menu-items">
+                            <li class="menu-item">
+                                <span class="item-name">De la casa</span>
+                                <span class="item-price">10</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Marqués de Vizhoja El Rodab.</span>
+                                <span class="item-price">10</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Ribeiro Viña Costeira</span>
+                                <span class="item-price">15</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Ribeiro Catro Parroquias</span>
+                                <span class="item-price">15</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Albariño Condes Albarei</span>
+                                <span class="item-price">16</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Albariño Paco & Lola</span>
+                                <span class="item-price">17</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Albariño Mar de Frades</span>
+                                <span class="item-price">28</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Godello Crego e Monaguillo</span>
+                                <span class="item-price">15,5</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Ribeiro Casal de Arman</span>
+                                <span class="item-price">22</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="category">
+                        <div class="category-name">Tintos</div>
+                        <div class="category-desc">Con cuerpo, para cuando baja el sol.</div>
+                        <ul class="menu-items">
+                            <li class="menu-item">
+                                <span class="item-name">De la casa</span>
+                                <span class="item-price">10</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Mencía Greco e Monaguillo</span>
+                                <span class="item-price">15,5</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Rioja Ramón Bilbao</span>
+                                <span class="item-price">16</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Ribera del Duero Matamorera</span>
+                                <span class="item-price">29</span>
+                            </li>
+                        </ul>
                     </div>
                 </div>
 
-                <div class="menu-card">
-                    <div class="menu-card-header">
-                        <div class="menu-card-icon">🥃</div>
-                        <h3>Rones</h3>
-                        <p>El espíritu del Caribe</p>
-                    </div>
-                    <div class="menu-card-body">
-                        <div class="menu-item">
-                            <span class="menu-item-name">Arehucas</span>
-                            <span class="menu-item-price">5,00€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Ron Bacardi Limón</span>
-                            <span class="menu-item-price">5,00€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Ron Negrita</span>
-                            <span class="menu-item-price">5,00€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Ron Santa Teresa</span>
-                            <span class="menu-item-price">5,00€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Ron Arehucas Añejo</span>
-                            <span class="menu-item-price">5,50€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Ron Brugal</span>
-                            <span class="menu-item-price">5,50€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Ron Cacique</span>
-                            <span class="menu-item-price">5,50€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Ron Barceló Añejo</span>
-                            <span class="menu-item-price">5,50€</span>
-                        </div>
-                    </div>
-                </div>
+                <!-- NOCHE DE FARO -->
+                <div class="section">
+                    <h2 class="section-title">NOCHE DE FARO</h2>
+                    <p class="section-subtitle">Cuando cae el sol, empieza la noche atlántica.</p>
 
-                <div class="menu-card">
-                    <div class="menu-card-header">
-                        <div class="menu-card-icon">🥃</div>
-                        <h3>Vodka, Tequila & Wisky</h3>
-                        <p>Clásicos internacionales</p>
+                    <div class="category">
+                        <div class="category-name">Ginebras</div>
+                        <ul class="menu-items">
+                            <li class="menu-item">
+                                <span class="item-name">Beefeater</span>
+                                <span class="item-price">5</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Tanqueray</span>
+                                <span class="item-price">5</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Puerto de Indias fresa</span>
+                                <span class="item-price">5,5</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Puerto de Indias melón</span>
+                                <span class="item-price">5,5</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Bombay Sapphire</span>
+                                <span class="item-price">6</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Seagrams</span>
+                                <span class="item-price">6</span>
+                            </li>
+                        </ul>
                     </div>
-                    <div class="menu-card-body">
+
+                    <div class="category">
+                        <div class="category-name">Rones</div>
+                        <ul class="menu-items">
+                            <li class="menu-item">
+                                <span class="item-name">Arehucas</span>
+                                <span class="item-price">5</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Ron Bacardi Limón</span>
+                                <span class="item-price">5</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Ron Negrita</span>
+                                <span class="item-price">5</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Ron Santa Teresa</span>
+                                <span class="item-price">5</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Ron Arehucas Añejo</span>
+                                <span class="item-price">5,5</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Ron Brugal</span>
+                                <span class="item-price">5,5</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Ron Cacique</span>
+                                <span class="item-price">5,5</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Ron Barceló Añejo</span>
+                                <span class="item-price">5,5</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="category">
                         <div class="category-title">Vodka</div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Absolut</span>
-                            <span class="menu-item-price">5,00€</span>
-                        </div>
+                        <ul class="menu-items">
+                            <li class="menu-item">
+                                <span class="item-name">Absolut</span>
+                                <span class="item-price">5</span>
+                            </li>
+                        </ul>
 
                         <div class="category-title">Tequila</div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">San José</span>
-                            <span class="menu-item-price">5,00€</span>
-                        </div>
+                        <ul class="menu-items">
+                            <li class="menu-item">
+                                <span class="item-name">San José</span>
+                                <span class="item-price">5</span>
+                            </li>
+                        </ul>
 
                         <div class="category-title">Wisky</div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Ballantines</span>
-                            <span class="menu-item-price">5,00€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">DYC</span>
-                            <span class="menu-item-price">5,00€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">JB</span>
-                            <span class="menu-item-price">5,00€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Jack Daniels</span>
-                            <span class="menu-item-price">5,50€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Johnnie Walker Red Label</span>
-                            <span class="menu-item-price">5,50€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Johnnie Walker Black Label</span>
-                            <span class="menu-item-price">6,50€</span>
-                        </div>
+                        <ul class="menu-items">
+                            <li class="menu-item">
+                                <span class="item-name">Ballantines</span>
+                                <span class="item-price">5</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">DYC</span>
+                                <span class="item-price">5</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">JB</span>
+                                <span class="item-price">5</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Jack Daniels</span>
+                                <span class="item-price">5,5</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Johnnie Walker Red Label</span>
+                                <span class="item-price">5,5</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Johnnie Walker Black Label</span>
+                                <span class="item-price">6,5</span>
+                            </li>
+                        </ul>
                     </div>
-                </div>
 
-                <div class="menu-card">
-                    <div class="menu-card-header">
-                        <div class="menu-card-icon">🍾</div>
-                        <h3>Mensaje en una Botella</h3>
-                        <p>Burbuja fina para brindar sin excusas</p>
-                    </div>
-                    <div class="menu-card-body">
-                        <div class="category-title">Espumosos</div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Espumoso Mencía Alma Atlantica</span>
-                            <span class="menu-item-price">16,00€</span>
-                        </div>
-
-                        <div class="category-title">Blancos (Botella)</div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">De la casa</span>
-                            <span class="menu-item-price">10,00€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Marqués de Vizhoja El Rodab.</span>
-                            <span class="menu-item-price">10,00€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Ribeiro Viña Costeira</span>
-                            <span class="menu-item-price">15,00€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Ribeiro Catro Parroquias</span>
-                            <span class="menu-item-price">15,00€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Albariño Condes Albarei</span>
-                            <span class="menu-item-price">16,00€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Albariño Paco & Lola</span>
-                            <span class="menu-item-price">17,00€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Albariño Mar de Frades</span>
-                            <span class="menu-item-price">28,00€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Godello Crego e Monaguillo</span>
-                            <span class="menu-item-price">15,50€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Ribeiro Casal de Arman</span>
-                            <span class="menu-item-price">22,00€</span>
-                        </div>
-
-                        <div class="category-title">Tintos (Botella)</div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">De la casa</span>
-                            <span class="menu-item-price">10,00€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Mencía Greco e Monaguillo</span>
-                            <span class="menu-item-price">15,50€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Rioja Ramón Bilbao</span>
-                            <span class="menu-item-price">16,00€</span>
-                        </div>
-                        <div class="menu-item">
-                            <span class="menu-item-name">Ribera del Duero Matamorera</span>
-                            <span class="menu-item-price">29,00€</span>
-                        </div>
+                    <h2 class="section-title" style="margin-top: 40px; font-size: 1rem;">EL ÚLTIMO TRAGO</h2>
+                    <div class="category">
+                        <div class="category-name">Chupitos</div>
+                        <div class="category-desc">Corto, directo y para cerrar la noche.</div>
+                        <ul class="menu-items">
+                            <li class="menu-item">
+                                <span class="item-name">Licor Café</span>
+                                <span class="item-price">2,5</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Licor de Hierbas</span>
+                                <span class="item-price">2,5</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Jäger</span>
+                                <span class="item-price">3</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Tequila</span>
+                                <span class="item-price">3</span>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
-        </section>
-
+        </div>
     </div>
 
     <!-- Footer -->
     <footer class="footer">
+        <p><strong>orixeatlantico.com</strong> · <strong>@OrixeAtlantico</strong></p>
+        <p>Rúa Eirexa 13 bajo - Olveira, Ribeira (A Coruña)</p>
         <p>&copy; 2025 ORIXE ATLÁNTICO - Todos los derechos reservados</p>
-        <p style="margin-top: 10px;">Rúa Eirexa 13 bajo, Olveira - Ribeira (A Coruña)</p>
-        <p>Instagram: @OrixeAtlantico | orixeatlantico.com</p>
     </footer>
+
 </body>
 </html>
