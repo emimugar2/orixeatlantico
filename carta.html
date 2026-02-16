@@ -81,6 +81,21 @@
             color: #E8D4A2;
         }
 
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .nav-toggle span {
+            width: 25px;
+            height: 3px;
+            background: white;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
         /* Page Header */
         .page-header {
             text-align: center;
@@ -287,6 +302,27 @@
 
         /* Responsive */
         @media (max-width: 900px) {
+            .nav-links {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background: #0A4B78;
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                padding: 30px 0;
+                gap: 20px;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-toggle {
+                display: flex;
+            }
+
             .two-columns {
                 grid-template-columns: 1fr;
                 gap: 40px;
@@ -305,10 +341,6 @@
             .sabores-grid {
                 grid-template-columns: 1fr;
                 gap: 10px;
-            }
-
-            .nav-links {
-                display: none;
             }
         }
 
@@ -333,13 +365,18 @@
             <a href="index.html" class="logo">
                 <img src="atlantico.svg" alt="ORIXE ATLÁNTICO">
             </a>
-            <nav class="nav-links">
+            <nav class="nav-links" id="nav-menu">
                 <a href="index.html">Inicio</a>
                 <a href="index.html#concepto">Concepto</a>
                 <a href="carta.html">Carta</a>
                 <a href="index.html#terraza">Terraza</a>
                 <a href="index.html#contacto">Contacto</a>
             </nav>
+            <div class="nav-toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </header>
 
@@ -1318,6 +1355,24 @@
         <p>Rúa Eirexa 13 bajo - Olveira, Ribeira (A Coruña)</p>
         <p>&copy; 2025 ORIXE ATLÁNTICO - Todos los derechos reservados</p>
     </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Menú móvil toggle
+        const navToggle = document.getElementById('nav-toggle');
+        const navMenu = document.getElementById('nav-menu');
+
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Cerrar menú al hacer click en un enlace
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+    </script>
 
 </body>
 </html>
